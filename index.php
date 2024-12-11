@@ -531,16 +531,8 @@
 				$rate = 0;
 				$raters = substr(strrchr($rating[1], '/'), 1);
 				if ($raters != "0")
-				@eval("@\$rate =".$rating[1].";");
+					@eval("@\$rate =".$rating[1].";");
 				$rate = round($rate, 2);
-				
-				//primary format:
-				//@eval("@\$rate =".$rating[1].";");
-				// if (($rate < 1) || ($rate > 5))
-				// 	$rating[1] = "0/0";
-				// if (isset($rating[2]))
-				// 	$curLastVisit = $rating;
-
 				$photos[$p] = sprintf("%d %s %s", $hits, $rating[1], date("Y/m/d-G:i:s", GetTimeWithDiffer()));
 				save_container('photos', 'Photo', './data/photos.xml');
 			}
